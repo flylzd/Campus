@@ -11,6 +11,8 @@ import com.foda.campus.constant.Config;
 
 import org.apache.http.protocol.HTTP;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,13 +63,22 @@ public class GsonGetRequest<T> extends GsonRequest<T> {
             if (null == entry.getValue()) {
                 continue;
             }
+//            try {
 //                encodedParams.append(URLEncoder.encode(entry.getKey(), paramsEncoding));
-//            encodedParams.append(URLEncoder.encode(entry.getKey()));
-            encodedParams.append(entry.getKey());
+////            encodedParams.append(entry.getKey());
+//                encodedParams.append('=');
+//                encodedParams.append(URLEncoder.encode(entry.getValue(), paramsEncoding));
+//                encodedParams.append('&');
+//            } catch (UnsupportedEncodingException e) {
+//                e.printStackTrace();
+//            }
+
+            encodedParams.append(URLEncoder.encode(entry.getKey()));
             encodedParams.append('=');
 //            encodedParams.append(URLEncoder.encode(entry.getValue()));
             encodedParams.append(entry.getValue());
             encodedParams.append('&');
+
         }
         String encodedUrlParams = encodedParams.substring(0, encodedParams.length() - 1);
         return encodedUrlParams;

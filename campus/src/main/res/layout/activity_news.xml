@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbOrderAll"
+            android:id="@+id/rbNews1"
             style="@style/radioOrderTab"
             android:checked="true"
             android:text="热点关注" />
@@ -23,7 +23,7 @@
             android:background="#e6e6e6" />
 
         <RadioButton
-            android:id="@+id/rbOrderMy"
+            android:id="@+id/rbNews2"
             style="@style/radioOrderTab"
             android:text="学校新闻" />
 
@@ -33,7 +33,7 @@
             android:background="#e6e6e6" />
 
         <RadioButton
-            android:id="@+id/rbOrderWarn"
+            android:id="@+id/rbNews3"
             style="@style/radioOrderTab"
             android:text="公告信息" />
 

@@ -5,5 +5,5 @@ import java.util.List;
 
 public class News extends BaseModel {
 
-    public List<NewsData> data;
+    public List<NewsData> items;
 }

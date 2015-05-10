@@ -27,17 +27,18 @@ public class ApiClient {
     /**
      * 获取新闻列表
      */
-    public static void getNewsList(String tag, ResponseListener listener) {
+    public static void getNewsList(String tag, int page, String typeName, ResponseListener listener) {
 
         listener.onStarted();
 
         Map<String, String> requestParams = new HashMap<String, String>();
-        requestParams.put("page", "1");
-        requestParams.put("limit", "50");
-        requestParams.put("sort", "id");
-        requestParams.put("dir", "ASC");
+        requestParams.put("page", String.valueOf(page));
+        requestParams.put("limit", "10");
+        requestParams.put("typeName", typeName);
+//        requestParams.put("sort", "id");
+//        requestParams.put("dir", "ASC");
 
-        String url = Urls.ACTION_URL + "find.action";
+        String url = Urls.ACTION_URL + "findNewsList.action";
         GsonGetRequest request = createGsonGetRequest(url, requestParams, News.class, listener);
         request.setTag(tag);
         requestQueue.add(request);
