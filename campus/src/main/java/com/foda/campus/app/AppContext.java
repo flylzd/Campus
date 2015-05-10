@@ -4,6 +4,8 @@ package com.foda.campus.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.foda.campus.volley.VolleySingleton;
+
 
 public class AppContext extends Application {
 
@@ -17,7 +19,7 @@ public class AppContext extends Application {
 
         mInstance = this;
 
-//        init();
+        init();
 //        initImageLoader(this);
     }
 
@@ -26,10 +28,10 @@ public class AppContext extends Application {
         return mInstance;
     }
 
-//    private void init() {
-//        VolleySingleton.init(this);
-//    }
-//
+    private void init() {
+        VolleySingleton.init(this);
+    }
+
 //    public static void initImageLoader(Context context) {
 //
 //        DisplayImageOptions displayOptions = new DisplayImageOptions.Builder()

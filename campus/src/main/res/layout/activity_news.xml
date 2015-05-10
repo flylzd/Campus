@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/top_tab_bg"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbOrderAll"
+            style="@style/radioOrderTab"
+            android:checked="true"
+            android:text="热点关注" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#e6e6e6" />
+
+        <RadioButton
+            android:id="@+id/rbOrderMy"
+            style="@style/radioOrderTab"
+            android:text="学校新闻" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#e6e6e6" />
+
+        <RadioButton
+            android:id="@+id/rbOrderWarn"
+            style="@style/radioOrderTab"
+            android:text="公告信息" />
+
+    </RadioGroup>
+
+
+    <com.foda.campus.view.PMSwipeRefreshLayout
+        android:id="@+id/pullRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp">
+
+        <com.foda.campus.view.EndOfListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@null"
+            android:dividerHeight="10dp"
+            android:listSelector="@android:color/transparent"
+            android:paddingBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+    </com.foda.campus.view.PMSwipeRefreshLayout>
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     <color name="transparent">#00000000</color>
     <color name="windowBackground">#f0f0f0</color>
 
-    <color name="actionbar_background">#ff5601</color>
+    <color name="actionbar_background">#008ed1</color>
     <color name="actionbar_item_background_normal">@color/transparent</color>
     <color name="actionbar_item_background_pressed">#3b351e</color>
 </resources>

@@ -16,4 +16,18 @@
         <item name="background">@color/actionbar_background</item>
     </style>
 
+
+    <style name="radioOrderTab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/selector_top_tab</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@drawable/selector_color_main_tab_text</item>
+    </style>
+
 </resources>

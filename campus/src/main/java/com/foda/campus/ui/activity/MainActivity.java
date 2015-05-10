@@ -5,19 +5,38 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.foda.campus.R;
+import com.foda.campus.util.UIHelper;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
+
+    private View layoutHomeNews;
+    private View layoutHomeAbout;
+    private View layoutHomeBeauty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initView();
+    }
+
+    private void initView() {
+
+        layoutHomeNews = findViewById(R.id.layoutHomeNews);
+        layoutHomeAbout = findViewById(R.id.layoutHomeAbout);
+        layoutHomeBeauty = findViewById(R.id.layoutHomeBeauty);
+
+        layoutHomeNews.setOnClickListener(this);
+        layoutHomeAbout.setOnClickListener(this);
+        layoutHomeBeauty.setOnClickListener(this);
     }
 
 
@@ -47,6 +66,20 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int getActionBarTitle() {
         return R.string.title_main;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.layoutHomeNews:
+                UIHelper.showNews(MainActivity.this);
+                break;
+            case R.id.layoutHomeAbout:
+                break;
+            case R.id.layoutHomeBeauty:
+                break;
+        }
     }
 
     @Override
@@ -81,4 +114,6 @@ public class MainActivity extends BaseActivity {
             System.exit(0);
         }
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.foda.campus;
+package com.foda.campus.volley;
 
 
 import android.util.Log;
@@ -69,22 +69,8 @@ public class GsonGetRequest<T> extends GsonRequest<T> {
             encodedParams.append(entry.getValue());
             encodedParams.append('&');
         }
-        return encodedParams.toString();
-//        try {
-//            for (Map.Entry<String, String> entry : params.entrySet()) {
-//                if (null == entry.getValue()) {
-//                    continue;
-//                }
-//                encodedParams.append(URLEncoder.encode(entry.getKey(), paramsEncoding));
-//                encodedParams.append('=');
-//                encodedParams.append(URLEncoder.encode(entry.getValue(), paramsEncoding));
-//                encodedParams.append('&');
-//            }
-//            Log.d(TAG, encodedParams.toString());
-//            return encodedParams.toString();
-//        } catch (UnsupportedEncodingException uee) {
-//            throw new RuntimeException("Encoding not supported: " + paramsEncoding, uee);
-//        }
+        String encodedUrlParams = encodedParams.substring(0, encodedParams.length() - 1);
+        return encodedUrlParams;
     }
 
 }
