@@ -76,8 +76,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 UIHelper.showNews(MainActivity.this);
                 break;
             case R.id.layoutHomeAbout:
+                UIHelper.showSchoolAbout(MainActivity.this);
                 break;
             case R.id.layoutHomeBeauty:
+                UIHelper.showSchoolBeauty(MainActivity.this);
                 break;
         }
     }
