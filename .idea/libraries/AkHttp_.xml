@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="AkHttp-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/campus/build/intermediates/exploded-aar/AkHttp/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/campus/build/intermediates/exploded-aar/AkHttp/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
