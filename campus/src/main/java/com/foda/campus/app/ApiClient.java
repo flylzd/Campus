@@ -66,6 +66,37 @@ public class ApiClient {
         requestQueue.add(request);
     }
 
+    /**
+     * 获取失物招领
+     */
+    public static void findOne(String tag, String id,  ResponseListener listener) {
+
+        listener.onStarted();
+
+        Map<String, String> requestParams = new HashMap<String, String>();
+        requestParams.put("id", id);
+
+        String url = Urls.ACTION_URL + "findOne.action";
+        GsonGetRequest request = createGsonGetRequest(url, requestParams, LostAndFound.class, listener);
+        request.setTag(tag);
+        requestQueue.add(request);
+    }
+
+    public static void saveLostAndFound(String tag, int type, String title, String content,  ResponseListener listener) {
+
+        listener.onStarted();
+
+        Map<String, String> requestParams = new HashMap<String, String>();
+        requestParams.put("type", String.valueOf(type));
+        requestParams.put("title", title);
+        requestParams.put("content", content);
+
+        String url = Urls.ACTION_URL + "saveLostAndFound.action";
+        GsonGetRequest request = createGsonGetRequest(url, requestParams, LostAndFound.class, listener);
+        request.setTag(tag);
+        requestQueue.add(request);
+    }
+
 
     private static <T> GsonPostRequest createGsonPostRequest(String url, Map<String, String> requestParamsMap, Class<T> clazz, final ResponseListener listener) {
 

@@ -12,6 +12,7 @@ import com.foda.campus.R;
 import com.foda.campus.app.ApiClient;
 import com.foda.campus.model.News;
 import com.foda.campus.model.NewsData;
+import com.foda.campus.util.UIHelper;
 import com.foda.campus.view.EndOfListView;
 import com.foda.campus.view.PMSwipeRefreshLayout;
 import com.foda.campus.volley.ResponseListener;
@@ -96,8 +97,7 @@ public class NewsActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
+                UIHelper.showNewsDetails(NewsActivity.this, adapter.getItem(position));
             }
         });
 
@@ -107,29 +107,32 @@ public class NewsActivity extends BaseActivity implements SwipeRefreshLayout.OnR
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rbNews1:
+                        search = SEARCH_TYPE_1;
                         if (!dataList1.isEmpty()) {
                             adapter.replaceAll(dataList1);
                         } else {
                             isFirstLoadingomplete1 = true;
-                            search = SEARCH_TYPE_1;
+
                             getNews1();
                         }
                         break;
                     case R.id.rbNews2:
+                        search = SEARCH_TYPE_2;
                         if (!dataList2.isEmpty()) {
                             adapter.replaceAll(dataList2);
                         } else {
                             isFirstLoadingomplete2 = true;
-                            search = SEARCH_TYPE_2;
+
                             getNews2();
                         }
                         break;
                     case R.id.rbNews3:
+                        search = SEARCH_TYPE_3;
                         if (!dataList3.isEmpty()) {
                             adapter.replaceAll(dataList3);
                         } else {
                             isFirstLoadingomplete3 = true;
-                            search = SEARCH_TYPE_3;
+
                             getNews3();
                         }
                         break;

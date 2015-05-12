@@ -4,12 +4,16 @@ package com.foda.campus.util;
 import android.content.Context;
 import android.content.Intent;
 
+import com.foda.campus.model.LostAndFoundData;
+import com.foda.campus.model.NewsData;
 import com.foda.campus.ui.activity.FastfoodActivity;
 import com.foda.campus.ui.activity.FastfoodMenuActivity;
 import com.foda.campus.ui.activity.LibraryActivity;
 import com.foda.campus.ui.activity.LostAndFoundActivity;
 import com.foda.campus.ui.activity.LostAndFoundAddActivity;
+import com.foda.campus.ui.activity.LostAndFoundDetailsActivity;
 import com.foda.campus.ui.activity.NewsActivity;
+import com.foda.campus.ui.activity.NewsDetailsActivity;
 import com.foda.campus.ui.activity.SchoolAboutActivity;
 import com.foda.campus.ui.activity.SchoolBeautyActivity;
 
@@ -17,6 +21,12 @@ public class UIHelper {
 
     public static void showNews(Context context) {
         Intent intent = new Intent(context, NewsActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showNewsDetails(Context context, NewsData data) {
+        Intent intent = new Intent(context, NewsDetailsActivity.class);
+        intent.putExtra("data", data);
         context.startActivity(intent);
     }
 
@@ -37,6 +47,12 @@ public class UIHelper {
 
     public static void showLostAndFoundAdd(Context context) {
         Intent intent = new Intent(context, LostAndFoundAddActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showLostAndFoundDetails(Context context, LostAndFoundData data) {
+        Intent intent = new Intent(context, LostAndFoundDetailsActivity.class);
+        intent.putExtra("data", data);
         context.startActivity(intent);
     }
 

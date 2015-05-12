@@ -6,16 +6,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.android.volley.error.VolleyError;
 import com.foda.campus.R;
 import com.foda.campus.app.ApiClient;
 import com.foda.campus.model.LostAndFound;
 import com.foda.campus.model.LostAndFoundData;
-import com.foda.campus.model.News;
-import com.foda.campus.model.NewsData;
 import com.foda.campus.util.UIHelper;
 import com.foda.campus.view.EndOfListView;
 import com.foda.campus.volley.ResponseListener;
@@ -33,7 +30,9 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
     private QuickAdapter<LostAndFoundData> adapter;
     private List<LostAndFoundData> dataList = new ArrayList<LostAndFoundData>();
 
-    private int page = 0;
+    private int page = 1;
+
+    private boolean isFirstLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,14 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
         setContentView(R.layout.activity_lost_and_found);
 
         initView();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        page = 1;
+        findLostAndFound();
     }
 
     @Override
@@ -74,9 +81,13 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
     @Override
     public void onEndOfList(Object lastItem) {
 
-        adapter.showIndeterminateProgress(true);
-        page++;
-//        findLostAndFound();
+        if (isFirstLoading) {
+            adapter.showIndeterminateProgress(true);
+            page++;
+            if (dataList.size() > 7) {
+                findLostAndFound();
+            }
+        }
     }
 
     private void showIndeterminateProgress(boolean visibility) {
@@ -89,15 +100,17 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
             @Override
             protected void convert(BaseAdapterHelper helper, LostAndFoundData item) {
 
-                TextView tvTitle = helper.getView(R.id.tvTitle);
+                ImageView imgLostAndFound = helper.getView(R.id.imgLostAndFound);
                 int type = item.type;
                 if (type == 0) {
-                    tvTitle.setCompoundDrawables(getResources().getDrawable(R.drawable.lost), null, null, null);
+//                    tvTitle.setCompoundDrawables(getResources().getDrawable(R.drawable.lost), null, null, null);
+                    imgLostAndFound.setImageResource(R.drawable.lost);
                 } else {
-                    tvTitle.setCompoundDrawables(getResources().getDrawable(R.drawable.found), null, null, null);
+//                    tvTitle.setCompoundDrawables(getResources().getDrawable(R.drawable.found), null, null, null);
+                    imgLostAndFound.setImageResource(R.drawable.found);
                 }
                 helper.setText(R.id.tvTitle, item.title);
-                helper.setText(R.id.tvPublishTime, item.publishTime);
+                helper.setText(R.id.tvTime, item.publishTime);
             }
         };
 
@@ -108,7 +121,7 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                UIHelper.showLostAndFoundDetails(LostAndFoundActivity.this, adapter.getItem(position));
             }
         });
     }
@@ -133,6 +146,8 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
                     dataList.addAll(list);
                 }
                 adapter.replaceAll(dataList);
+
+                isFirstLoading = true;
             }
 
             @Override
@@ -142,5 +157,11 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ApiClient.requestQueue.getCache().clear();
+        ApiClient.requestQueue.cancelAll(TAG);
+    }
 }
 

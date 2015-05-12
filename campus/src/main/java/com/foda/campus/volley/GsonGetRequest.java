@@ -21,7 +21,7 @@ public class GsonGetRequest<T> extends GsonRequest<T> {
     private static final String TAG = "GsonGetRequest";
 
     //    private static final String DEFAULT_PARAMS_ENCODING = "GBK";
-    private static final String DEFAULT_PARAMS_ENCODING = HTTP.ISO_8859_1;
+    private static final String DEFAULT_PARAMS_ENCODING = HTTP.UTF_8;
 
     /**
      * Content type for request.
@@ -63,21 +63,21 @@ public class GsonGetRequest<T> extends GsonRequest<T> {
             if (null == entry.getValue()) {
                 continue;
             }
-//            try {
-//                encodedParams.append(URLEncoder.encode(entry.getKey(), paramsEncoding));
-////            encodedParams.append(entry.getKey());
-//                encodedParams.append('=');
-//                encodedParams.append(URLEncoder.encode(entry.getValue(), paramsEncoding));
-//                encodedParams.append('&');
-//            } catch (UnsupportedEncodingException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                encodedParams.append(URLEncoder.encode(entry.getKey(), paramsEncoding));
+//            encodedParams.append(entry.getKey());
+                encodedParams.append('=');
+                encodedParams.append(URLEncoder.encode(entry.getValue(), paramsEncoding));
+                encodedParams.append('&');
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
 
-            encodedParams.append(URLEncoder.encode(entry.getKey()));
-            encodedParams.append('=');
-//            encodedParams.append(URLEncoder.encode(entry.getValue()));
-            encodedParams.append(entry.getValue());
-            encodedParams.append('&');
+//            encodedParams.append(URLEncoder.encode(entry.getKey()));
+//            encodedParams.append('=');
+////            encodedParams.append(URLEncoder.encode(entry.getValue()));
+//            encodedParams.append(entry.getValue());
+//            encodedParams.append('&');
 
         }
         String encodedUrlParams = encodedParams.substring(0, encodedParams.length() - 1);
