@@ -20,10 +20,11 @@ import com.foda.campus.R;
 public class SchoolBeautyActivity extends BaseActivity {
 
     // 声明并静态初始化图片id数组
-    private int[] imageIds = {R.drawable.home_gdut_paper, R.drawable.home_gdut_paper,
-            R.drawable.home_background_pressed, R.drawable.home_gdut_paper, R.drawable.home_fastfood,
-            R.drawable.home_library, R.drawable.home_lost_and_found, R.drawable.home_map,
-            R.drawable.home_news, R.drawable.home_teach_manage};
+    private int[] imageIds = {R.drawable.bg_campus_1, R.drawable.bg_campus_2,
+            R.drawable.bg_campus_3, R.drawable.bg_campus_4, R.drawable.bg_campus_5,
+            R.drawable.bg_campus_6, R.drawable.bg_campus_7, R.drawable.bg_campus_8,
+            R.drawable.bg_campus_9, R.drawable.bg_campus_10, R.drawable.bg_campus_11,
+            R.drawable.bg_campus_12, R.drawable.bg_campus_13};
 
     // 声明一个Gallery视图控件变量
     private Gallery gallery;

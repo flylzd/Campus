@@ -8,6 +8,10 @@
     <string name="title_main">佛大校园通</string>
     <string name="title_news">新闻</string>
     <string name="title_school_about">校园简介</string>
+    <string name="title_lost_and_found">失物招领</string>
+    <string name="title_fastfood">外卖</string>
+    <string name="title_fastfood_menu">外卖菜单</string>
+    <string name="title_library">图书馆</string>
 
     <string name="school_about">
         &#160;&#160;&#160;&#160;佛山科学技术学院地处历史文化底蕴深厚、经济社会发展活力强劲的城市——广东省佛山市，

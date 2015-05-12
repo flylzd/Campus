@@ -10,6 +10,7 @@ import com.android.volley.error.AuthFailureError;
 import com.android.volley.error.VolleyError;
 import com.android.volley.error.VolleyErrorHelper;
 import com.foda.campus.constant.Urls;
+import com.foda.campus.model.LostAndFound;
 import com.foda.campus.model.News;
 import com.foda.campus.volley.GsonGetRequest;
 import com.foda.campus.volley.GsonPostRequest;
@@ -40,6 +41,27 @@ public class ApiClient {
 
         String url = Urls.ACTION_URL + "findNewsList.action";
         GsonGetRequest request = createGsonGetRequest(url, requestParams, News.class, listener);
+        request.setTag(tag);
+        requestQueue.add(request);
+    }
+
+
+    /**
+     * 获取失物招领
+     */
+    public static void findLostAndFound(String tag, int page,  ResponseListener listener) {
+
+        listener.onStarted();
+
+        Map<String, String> requestParams = new HashMap<String, String>();
+        requestParams.put("page", String.valueOf(page));
+        requestParams.put("limit", "10");
+
+//        requestParams.put("sort", "id");
+//        requestParams.put("dir", "ASC");
+
+        String url = Urls.ACTION_URL + "findLostAndFound.action";
+        GsonGetRequest request = createGsonGetRequest(url, requestParams, LostAndFound.class, listener);
         request.setTag(tag);
         requestQueue.add(request);
     }

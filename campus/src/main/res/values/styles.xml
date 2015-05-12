@@ -6,6 +6,7 @@
         <item name="actionBarStyle">@style/ActionBarBaseStyle</item>
 
         <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:actionMenuTextAppearance">@style/ActionBarMenuStyle</item>
 
     </style>
 
@@ -14,6 +15,10 @@
 
         <!-- Support library compatibility -->
         <item name="background">@color/actionbar_background</item>
+    </style>
+
+    <style name="ActionBarMenuStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize">20sp</item>
     </style>
 
 

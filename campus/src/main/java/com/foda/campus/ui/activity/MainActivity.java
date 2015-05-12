@@ -19,6 +19,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private View layoutHomeNews;
     private View layoutHomeAbout;
     private View layoutHomeBeauty;
+    private View layoutHomeLostAndFound;
+    private View layoutHomeTakeOut;
+    private View layoutHomeLibrary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +36,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         layoutHomeNews = findViewById(R.id.layoutHomeNews);
         layoutHomeAbout = findViewById(R.id.layoutHomeAbout);
         layoutHomeBeauty = findViewById(R.id.layoutHomeBeauty);
+        layoutHomeLostAndFound = findViewById(R.id.layoutHomeLostAndFound);
+        layoutHomeTakeOut = findViewById(R.id.layoutHomeTakeOut);
+        layoutHomeLibrary = findViewById(R.id.layoutHomeLibrary);
 
         layoutHomeNews.setOnClickListener(this);
         layoutHomeAbout.setOnClickListener(this);
         layoutHomeBeauty.setOnClickListener(this);
+        layoutHomeLostAndFound.setOnClickListener(this);
+        layoutHomeTakeOut.setOnClickListener(this);
+        layoutHomeLibrary.setOnClickListener(this);
+
     }
 
 
@@ -80,6 +90,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.layoutHomeBeauty:
                 UIHelper.showSchoolBeauty(MainActivity.this);
+                break;
+            case R.id.layoutHomeLostAndFound:
+                UIHelper.showLostAndFound(MainActivity.this);
+                break;
+            case R.id.layoutHomeTakeOut:
+                UIHelper.showFastfood(MainActivity.this);
+                break;
+            case R.id.layoutHomeLibrary:
+                UIHelper.showLibrary(MainActivity.this);
                 break;
         }
     }
