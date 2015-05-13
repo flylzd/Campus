@@ -160,8 +160,8 @@ public class LostAndFoundActivity extends BaseActivity implements EndOfListView.
     @Override
     protected void onStop() {
         super.onStop();
-        ApiClient.requestQueue.getCache().clear();
         ApiClient.requestQueue.cancelAll(TAG);
+        ApiClient.requestQueue.getCache().clear();
     }
 }
 

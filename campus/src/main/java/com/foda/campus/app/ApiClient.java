@@ -97,6 +97,20 @@ public class ApiClient {
         requestQueue.add(request);
     }
 
+    public static void sendLostAndFound(String tag, String id,  String content,  ResponseListener listener) {
+
+        listener.onStarted();
+
+        Map<String, String> requestParams = new HashMap<String, String>();
+        requestParams.put("id", id);
+        requestParams.put("content", content);
+
+        String url = Urls.ACTION_URL + "sendLostAndFound.action";
+        GsonGetRequest request = createGsonGetRequest(url, requestParams, LostAndFound.class, listener);
+        request.setTag(tag);
+        requestQueue.add(request);
+    }
+
 
     private static <T> GsonPostRequest createGsonPostRequest(String url, Map<String, String> requestParamsMap, Class<T> clazz, final ResponseListener listener) {
 

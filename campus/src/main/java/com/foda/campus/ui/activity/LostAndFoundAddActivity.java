@@ -126,7 +126,7 @@ public class LostAndFoundAddActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        ApiClient.requestQueue.getCache().clear();
         ApiClient.requestQueue.cancelAll(TAG);
+        ApiClient.requestQueue.getCache().clear();
     }
 }

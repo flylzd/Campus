@@ -1,13 +1,16 @@
 package com.foda.campus.ui.activity;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.error.VolleyError;
 import com.foda.campus.R;
@@ -38,6 +41,8 @@ public class LostAndFoundDetailsActivity extends BaseActivity implements EndOfLi
     private EditText etSend;
     private Button btnSend;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,13 +71,55 @@ public class LostAndFoundDetailsActivity extends BaseActivity implements EndOfLi
             }
         };
 
-        listView = (EndOfListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listView);
 //        listView.setOnEndOfListListener(this);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        etSend = (EditText) findViewById(R.id.etSend);
+        btnSend = (Button) findViewById(R.id.btnSend);
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String send = etSend.getText().toString();
+
+                if (TextUtils.isEmpty(send)) {
+                    Toast.makeText(LostAndFoundDetailsActivity.this, "内容不能为空!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                ApiClient.sendLostAndFound(TAG,data.id, send,new ResponseListener() {
+                    @Override
+                    public void onStarted() {
+                        progressDialog = ProgressDialog.show(LostAndFoundDetailsActivity.this, null,"正在提交数据...");
+                    }
+
+                    @Override
+                    public void onResponse(Object response) {
+                        progressDialog.dismiss();
+
+                        LostAndFound bean = (LostAndFound) response;
+                        if (bean.code == 200) {
+//                            finish();
+                            etSend.getText().clear();
+                            findLostAndFound();
+                        } else {
+                            Toast.makeText(LostAndFoundDetailsActivity.this, "发送失败",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                    }
+                });
 
             }
         });
@@ -108,6 +155,7 @@ public class LostAndFoundDetailsActivity extends BaseActivity implements EndOfLi
                 showIndeterminateProgress(false);
 
                 List<LostAndFoundData> list = ((LostAndFound) response).items;
+                dataList.clear();
                 dataList.add(data);
                 if (list != null && list.size() != 0) {
                     dataList.addAll(list);
@@ -127,8 +175,8 @@ public class LostAndFoundDetailsActivity extends BaseActivity implements EndOfLi
     @Override
     protected void onStop() {
         super.onStop();
-        ApiClient.requestQueue.getCache().clear();
         ApiClient.requestQueue.cancelAll(TAG);
+        ApiClient.requestQueue.getCache().clear();
     }
 
 }
