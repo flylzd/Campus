@@ -8,4 +8,7 @@
     <color name="actionbar_background">#008ed1</color>
     <color name="actionbar_item_background_normal">@color/transparent</color>
     <color name="actionbar_item_background_pressed">#3b351e</color>
+
+    <color name="layout_bg_pressed">#d3d3d3</color>
+
 </resources>

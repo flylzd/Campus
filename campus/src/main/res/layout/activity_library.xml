@@ -1,32 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/indicator"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal"
+            android:background="#d3d3d3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:text="最新图书"
+                android:textColor="@color/solid_black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutItem"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_layout_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_library_menu1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="这善变的世界，难得有你"
+                android:textColor="@color/solid_black"
+                android:textSize="18sp" />
         </LinearLayout>
-    </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6" />
+
+        <LinearLayout
+            android:id="@+id/layoutItem1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_layout_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_library_menu2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="慕课革命 互联网如何变革教育"
+                android:textColor="@color/solid_black"
+                android:textSize="18sp" />
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d3d3d3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:text="推荐图书"
+                android:textColor="@color/solid_black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutItem2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_layout_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_library_menu1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="这善变的世界，难得有你"
+                android:textColor="@color/solid_black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e6e6" />
+
+        <LinearLayout
+            android:id="@+id/layoutItem3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_layout_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_library_menu2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="慕课革命 互联网如何变革教育"
+                android:textColor="@color/solid_black"
+                android:textSize="18sp" />
+        </LinearLayout>
 
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutItem4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/selector_layout_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_library_menu2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="慕课革命 互联网如何变革教育"
+                android:textColor="@color/solid_black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

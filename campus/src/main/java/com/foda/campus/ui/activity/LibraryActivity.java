@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.foda.campus.R;
+import com.foda.campus.util.UIHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,12 @@ public class LibraryActivity extends BaseActivity {
     private static final int INDICATOR_COUNT = 4;
     private ImageView[] indicatorImgs = new ImageView[INDICATOR_COUNT];//存放引到图片数组
 
-    public LibraryActivity() {
-    }
+    private View layoutItem;
+    private View layoutItem1;
+    private View layoutItem2;
+    private View layoutItem3;
+    private View layoutItem4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +102,43 @@ public class LibraryActivity extends BaseActivity {
         });
 
         initIndicator();
+
+        layoutItem = findViewById(R.id.layoutItem);
+        layoutItem1 = findViewById(R.id.layoutItem1);
+        layoutItem2 = findViewById(R.id.layoutItem2);
+        layoutItem3 = findViewById(R.id.layoutItem3);
+        layoutItem4 = findViewById(R.id.layoutItem4);
+
+        layoutItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.showLibraryDetails(LibraryActivity.this);
+            }
+        });
+        layoutItem1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.showLibraryDetails(LibraryActivity.this);
+            }
+        });
+        layoutItem2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.showLibraryDetails(LibraryActivity.this);
+            }
+        });
+        layoutItem3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.showLibraryDetails(LibraryActivity.this);
+            }
+        });
+        layoutItem4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIHelper.showLibraryDetails(LibraryActivity.this);
+            }
+        });
     }
 
 

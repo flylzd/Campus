@@ -9,6 +9,7 @@ import com.foda.campus.model.NewsData;
 import com.foda.campus.ui.activity.FastfoodActivity;
 import com.foda.campus.ui.activity.FastfoodMenuActivity;
 import com.foda.campus.ui.activity.LibraryActivity;
+import com.foda.campus.ui.activity.LibraryDetailsActivity;
 import com.foda.campus.ui.activity.LostAndFoundActivity;
 import com.foda.campus.ui.activity.LostAndFoundAddActivity;
 import com.foda.campus.ui.activity.LostAndFoundDetailsActivity;
@@ -68,6 +69,11 @@ public class UIHelper {
 
     public static void showLibrary(Context context) {
         Intent intent = new Intent(context, LibraryActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void showLibraryDetails(Context context) {
+        Intent intent = new Intent(context, LibraryDetailsActivity.class);
         context.startActivity(intent);
     }
 }
