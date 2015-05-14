@@ -20,14 +20,14 @@ public class LostAndFoundAddActivity extends BaseActivity {
 
     private static final String TAG = "LostAndFoundAddActivity";
 
-    private RadioGroup rgLostAndFound;
-    private TextView etTitle;
-    private TextView etContent;
+    private RadioGroup rgLostAndFound;  //失物招领类型
+    private TextView etTitle;   //标题
+    private TextView etContent; //内容
     private String title;
     private String content;
     private int type = 0;
 
-    private ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;  //提示框
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +102,6 @@ public class LostAndFoundAddActivity extends BaseActivity {
             public void onStarted() {
                 progressDialog = ProgressDialog.show(LostAndFoundAddActivity.this, null,"正在提交数据...");
             }
-
             @Override
             public void onResponse(Object response) {
                 progressDialog.dismiss();
@@ -113,9 +112,7 @@ public class LostAndFoundAddActivity extends BaseActivity {
                 } else {
                     Toast.makeText(LostAndFoundAddActivity.this, "发布失败",Toast.LENGTH_SHORT).show();
                 }
-
             }
-
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 progressDialog.dismiss();

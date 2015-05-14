@@ -19,12 +19,17 @@ import com.foda.campus.R;
 
 public class SchoolBeautyActivity extends BaseActivity {
 
+//    // 声明并静态初始化图片id数组
+//    private int[] imageIds = {R.drawable.bg_campus_1, R.drawable.bg_campus_2,
+//            R.drawable.bg_campus_3, R.drawable.bg_campus_4, R.drawable.bg_campus_5,
+//            R.drawable.bg_campus_6, R.drawable.bg_campus_7, R.drawable.bg_campus_8,
+//            R.drawable.bg_campus_9, R.drawable.bg_campus_10, R.drawable.bg_campus_11,
+//            R.drawable.bg_campus_12, R.drawable.bg_campus_13};
+
     // 声明并静态初始化图片id数组
     private int[] imageIds = {R.drawable.bg_campus_1, R.drawable.bg_campus_2,
             R.drawable.bg_campus_3, R.drawable.bg_campus_4, R.drawable.bg_campus_5,
-            R.drawable.bg_campus_6, R.drawable.bg_campus_7, R.drawable.bg_campus_8,
-            R.drawable.bg_campus_9, R.drawable.bg_campus_10, R.drawable.bg_campus_11,
-            R.drawable.bg_campus_12, R.drawable.bg_campus_13};
+            R.drawable.bg_campus_6, R.drawable.bg_campus_7};
 
     // 声明一个Gallery视图控件变量
     private Gallery gallery;
